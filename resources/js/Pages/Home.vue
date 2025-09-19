@@ -53,7 +53,7 @@ ${form.message}
                 href="#contato"
                 class="bg-white text-indigo-600 px-6 py-3 rounded-lg font-medium shadow hover:bg-gray-100 transition"
                 as="button"
-            >
+            prefetch>
                 Faça já seu orçamento
             </Link>
         </section>
