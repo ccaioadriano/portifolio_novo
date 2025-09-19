@@ -109,7 +109,7 @@
         <footer class="bg-gray-900 text-gray-300 py-6 mt-auto">
             <div class="max-w-7xl mx-auto flex flex-col items-center gap-2">
                 <p class="text-sm">
-                    © {{ new Date().getFullYear() }} Caio Adriano · Consultor de Soluções Tecnológicas
+                    © {{ new Date().getFullYear() }} Caio Adriano · Consultor em Soluções Tecnológicas
                 </p>
                 <div class="flex gap-4">
                     <a

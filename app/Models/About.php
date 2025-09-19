@@ -9,6 +9,7 @@ class About extends Model
     protected $fillable = [
         'name',
         'headline',
+        'profile_picture',
         'bio',
         'profile_picture',
         'social_links',

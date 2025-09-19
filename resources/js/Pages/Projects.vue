@@ -1,10 +1,5 @@
 <script setup>
 import AppLayout from "@/Layouts/AppLayout.vue";
-import { Link } from "@inertiajs/vue3";
-import {
-    ArrowTopRightOnSquareIcon,
-    CodeBracketIcon,
-} from "@heroicons/vue/24/outline";
 
 const props = defineProps({ projects: Array });
 
@@ -122,7 +117,7 @@ const props = defineProps({ projects: Array });
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
-                    href="/contact"
+                    href="/#contato"
                     class="bg-indigo-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-indigo-700 transition"
                 >
                     💬 Vamos conversar

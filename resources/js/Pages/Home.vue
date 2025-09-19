@@ -9,9 +9,28 @@ const form = useForm({
     message: "",
 });
 
-// handler para enviar o formulário
+const whatsappNumber = "5531994409981";
+
+// handler para enviar para WhatsApp
 function submit() {
-    form.post("/contact");
+    const text = `
+*Novo Contato pelo Site*
+
+- Nome: ${form.name}
+- Email: ${form.email}
+
+Mensagem:
+${form.message}
+`;
+
+    const encodedMessage = encodeURIComponent(text.trim());
+    window.open(
+        `https://wa.me/${whatsappNumber}?text=${encodedMessage}`,
+        "_blank"
+    );
+
+    // opcional: limpar dados do form
+    form.reset();
 }
 </script>
 
@@ -35,7 +54,7 @@ function submit() {
                 class="bg-white text-indigo-600 px-6 py-3 rounded-lg font-medium shadow hover:bg-gray-100 transition"
                 as="button"
             >
-                Agende uma reunião comigo
+                Faça já seu orçamento
             </Link>
         </section>
 
@@ -159,7 +178,7 @@ function submit() {
                         type="submit"
                         class="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold py-3 px-6 rounded-lg hover:from-indigo-700 hover:to-purple-700 shadow-md hover:shadow-lg transition-all duration-200"
                     >
-                        📅 Agendar Reunião
+                        Enviar mensagem
                     </button>
                 </form>
             </div>
