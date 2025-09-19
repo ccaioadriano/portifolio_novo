@@ -1,7 +1,7 @@
 <script setup>
 import AppLayout from "@/Layouts/AppLayout.vue";
-import { useForm } from "@inertiajs/vue3";
-import { Link } from "@inertiajs/vue3";
+
+import { useForm, Link } from "@inertiajs/vue3";
 
 const form = useForm({
     name: "",
@@ -11,8 +11,32 @@ const form = useForm({
 
 const whatsappNumber = "5531994409981";
 
+// função de validação
+async function validate() {
+    return new Promise((resolve, reject) => {
+        router.post("/validate-contact", form, {
+            preserveScroll: true,
+            onSuccess: () => {
+                console.log("✅ Validação passou!");
+                resolve(true);
+            },
+            onError: (errors) => {
+                form.errors = errors
+                resolve(false);
+            },
+        });
+    });
+}
+
 // handler para enviar para WhatsApp
-function submit() {
+async function submit() {
+    const isValid = await validate();
+
+    if (!isValid) {
+        console.log("Formulário inválido!");
+        return;
+    }
+
     const text = `
 *Novo Contato pelo Site*
 
@@ -29,7 +53,6 @@ ${form.message}
         "_blank"
     );
 
-    // opcional: limpar dados do form
     form.reset();
 }
 </script>
@@ -53,7 +76,8 @@ ${form.message}
                 href="#contato"
                 class="bg-white text-indigo-600 px-6 py-3 rounded-lg font-medium shadow hover:bg-gray-100 transition"
                 as="button"
-            prefetch>
+                prefetch
+            >
                 Faça já seu orçamento
             </Link>
         </section>
@@ -110,14 +134,15 @@ ${form.message}
                     <!-- Nome -->
                     <div class="mb-6">
                         <label
+                            for="name"
                             class="block text-sm font-semibold text-gray-700 mb-2"
-                            >Nome</label
                         >
+                            Nome
+                        </label>
                         <input
                             v-model="form.name"
+                            id="name"
                             type="text"
-                            name="name"
-                            required
                             placeholder="Digite seu nome completo"
                             class="w-full rounded-lg border border-gray-300 bg-gray-50 px-4 py-3 text-gray-800 shadow-sm placeholder-gray-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition"
                         />
@@ -132,14 +157,15 @@ ${form.message}
                     <!-- Email -->
                     <div class="mb-6">
                         <label
+                            for="email"
                             class="block text-sm font-semibold text-gray-700 mb-2"
-                            >Email</label
                         >
+                            Email
+                        </label>
                         <input
                             v-model="form.email"
+                            id="email"
                             type="email"
-                            name="email"
-                            required
                             placeholder="voce@email.com"
                             class="w-full rounded-lg border border-gray-300 bg-gray-50 px-4 py-3 text-gray-800 shadow-sm placeholder-gray-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition"
                         />
@@ -154,14 +180,15 @@ ${form.message}
                     <!-- Mensagem -->
                     <div class="mb-6">
                         <label
+                            for="message"
                             class="block text-sm font-semibold text-gray-700 mb-2"
-                            >Mensagem</label
                         >
+                            Mensagem
+                        </label>
                         <textarea
                             v-model="form.message"
+                            id="message"
                             rows="4"
-                            name="message"
-                            required
                             placeholder="Escreva aqui sua mensagem..."
                             class="w-full rounded-lg border border-gray-300 bg-gray-50 px-4 py-3 text-gray-800 shadow-sm placeholder-gray-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition"
                         ></textarea>
@@ -177,6 +204,7 @@ ${form.message}
                     <button
                         type="submit"
                         class="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold py-3 px-6 rounded-lg hover:from-indigo-700 hover:to-purple-700 shadow-md hover:shadow-lg transition-all duration-200"
+                        :disabled="form.processing"
                     >
                         Enviar mensagem
                     </button>

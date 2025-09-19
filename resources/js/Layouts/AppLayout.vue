@@ -68,6 +68,7 @@
                                         :aria-current="
                                             item.current ? 'page' : undefined
                                         "
+                                        prefetch
                                     >
                                         {{ item.name }}
                                     </Link>
