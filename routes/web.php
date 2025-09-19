@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -9,18 +9,13 @@ Route::get('/', function () {
         'name' => 'Caio Adriano',
         'role' => 'Full Stack Developer'
     ]);
-});
+})->name('home');
 
 Route::get('/sobre', function () {
     return Inertia::render('About', [
         'name' => 'Caio Adriano',
         'role' => 'Full Stack Developer'
     ]);
-});
+})->name('about');
 
-Route::get('/projetos', function () {
-    return Inertia::render('Projects', [
-        'name' => 'Caio Adriano',
-        'role' => 'Full Stack Developer'
-    ]);
-});
+Route::get('/projetos', [ProjectController::class, 'index'])->name('projects');

@@ -48,8 +48,8 @@ function submit() {
                 <div class="p-6 bg-white shadow rounded-lg">
                     <h3 class="font-semibold mb-2">🚀 Transformação Digital</h3>
                     <p>
-                        Implantação de soluções modernas para aumentar
-                        sua produtividade.
+                        Implantação de soluções modernas para aumentar sua
+                        produtividade.
                     </p>
                 </div>
                 <div class="p-6 bg-white shadow rounded-lg">
@@ -66,27 +66,32 @@ function submit() {
                         📊 Estratégia Tecnológica
                     </h3>
                     <p>
-                        Consultoria personalizada para contruir soluções alinhadas com seus objetivos.
+                        Consultoria personalizada para contruir soluções
+                        alinhadas com seus objetivos.
                     </p>
                 </div>
             </div>
         </section>
 
         <!-- FORMULÁRIO DE CONTATO -->
-        <section id="contato" class="py-20 bg-gray-100 rounded-lg">
+        <section id="contato" class="py-20 bg-gray-50">
             <div class="max-w-3xl mx-auto text-center">
-                <h2 class="text-3xl font-bold mb-6">Entre em contato</h2>
-                <p class="mb-8 text-gray-600">
+                <h2 class="text-3xl font-extrabold mb-4 text-gray-900">
+                    🚀 Entre em contato
+                </h2>
+                <p class="mb-10 text-gray-600 max-w-lg mx-auto">
                     Preencha o formulário abaixo para marcar uma reunião ou
-                    solicitar uma proposta.
+                    solicitar uma proposta personalizada.
                 </p>
 
                 <form
                     @submit.prevent="submit"
-                    class="bg-white shadow-lg rounded-lg p-8 text-left"
+                    class="bg-white shadow-xl rounded-2xl p-8 md:p-10 text-left border border-gray-100"
                 >
-                    <div class="mb-4">
-                        <label class="block text-sm font-medium text-gray-700"
+                    <!-- Nome -->
+                    <div class="mb-6">
+                        <label
+                            class="block text-sm font-semibold text-gray-700 mb-2"
                             >Nome</label
                         >
                         <input
@@ -94,17 +99,21 @@ function submit() {
                             type="text"
                             name="name"
                             required
-                            class="mt-1 w-full p-3 border rounded-md focus:ring-indigo-500 focus:border-indigo-500"
+                            placeholder="Digite seu nome completo"
+                            class="w-full rounded-lg border border-gray-300 bg-gray-50 px-4 py-3 text-gray-800 shadow-sm placeholder-gray-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition"
                         />
                         <span
                             v-if="form.errors.name"
-                            class="text-red-500 text-sm"
-                            >{{ form.errors.name }}</span
+                            class="text-red-500 text-sm mt-1 block"
                         >
+                            {{ form.errors.name }}
+                        </span>
                     </div>
 
-                    <div class="mb-4">
-                        <label class="block text-sm font-medium text-gray-700"
+                    <!-- Email -->
+                    <div class="mb-6">
+                        <label
+                            class="block text-sm font-semibold text-gray-700 mb-2"
                             >Email</label
                         >
                         <input
@@ -112,36 +121,43 @@ function submit() {
                             type="email"
                             name="email"
                             required
-                            class="mt-1 w-full p-3 border rounded-md focus:ring-indigo-500 focus:border-indigo-500"
+                            placeholder="voce@email.com"
+                            class="w-full rounded-lg border border-gray-300 bg-gray-50 px-4 py-3 text-gray-800 shadow-sm placeholder-gray-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition"
                         />
                         <span
                             v-if="form.errors.email"
-                            class="text-red-500 text-sm"
-                            >{{ form.errors.email }}</span
+                            class="text-red-500 text-sm mt-1 block"
                         >
+                            {{ form.errors.email }}
+                        </span>
                     </div>
 
-                    <div class="mb-4">
-                        <label class="block text-sm font-medium text-gray-700"
+                    <!-- Mensagem -->
+                    <div class="mb-6">
+                        <label
+                            class="block text-sm font-semibold text-gray-700 mb-2"
                             >Mensagem</label
                         >
                         <textarea
                             v-model="form.message"
                             rows="4"
-                            required
                             name="message"
-                            class="mt-1 w-full p-3 border rounded-md focus:ring-indigo-500 focus:border-indigo-500"
+                            required
+                            placeholder="Escreva aqui sua mensagem..."
+                            class="w-full rounded-lg border border-gray-300 bg-gray-50 px-4 py-3 text-gray-800 shadow-sm placeholder-gray-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition"
                         ></textarea>
                         <span
                             v-if="form.errors.message"
-                            class="text-red-500 text-sm"
-                            >{{ form.errors.message }}</span
+                            class="text-red-500 text-sm mt-1 block"
                         >
+                            {{ form.errors.message }}
+                        </span>
                     </div>
 
+                    <!-- Botão -->
                     <button
                         type="submit"
-                        class="w-full bg-indigo-600 text-white py-3 rounded-md hover:bg-indigo-700 transition"
+                        class="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold py-3 px-6 rounded-lg hover:from-indigo-700 hover:to-purple-700 shadow-md hover:shadow-lg transition-all duration-200"
                     >
                         📅 Agendar Reunião
                     </button>

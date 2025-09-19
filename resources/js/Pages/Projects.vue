@@ -1,88 +1,21 @@
 <script setup>
 import AppLayout from "@/Layouts/AppLayout.vue";
+import { Link } from "@inertiajs/vue3";
+import {
+    ArrowTopRightOnSquareIcon,
+    CodeBracketIcon,
+} from "@heroicons/vue/24/outline";
 
-// Array de projetos (você pode mover isso para props ou API depois)
-const projects = [
-    {
-        id: 1,
-        title: "Transformação Digital - E-commerce",
-        description:
-            "Implementação completa de plataforma e-commerce para empresa do varejo, incluindo integração com ERP, gateway de pagamento e sistema de gestão de estoque.",
-        technologies: ["Laravel", "Vue.js", "MySQL", "Stripe", "AWS"],
-        results: "Aumento de 300% nas vendas online em 6 meses",
-        image: "",
-        category: "E-commerce",
-    },
-    {
-        id: 2,
-        title: "Sistema de Gestão Empresarial",
-        description:
-            "Desenvolvimento de ERP customizado para indústria, automatizando processos de produção, vendas e controle financeiro.",
-        technologies: ["PHP", "React", "PostgreSQL", "Docker", "Redis"],
-        results: "Redução de 40% no tempo de processos administrativos",
-        image: "",
-        category: "ERP",
-    },
-    {
-        id: 3,
-        title: "Migração para Cloud AWS",
-        description:
-            "Migração completa de infraestrutura on-premise para AWS, implementando alta disponibilidade e backup automatizado.",
-        technologies: ["AWS", "Docker", "Kubernetes", "Terraform", "CI/CD"],
-        results: "Redução de 60% nos custos de infraestrutura",
-        image: "",
-        category: "Cloud",
-    },
-    {
-        id: 4,
-        title: "App Mobile para Delivery",
-        description:
-            "Aplicativo mobile completo para delivery de restaurantes, com sistema de pedidos, pagamento e rastreamento em tempo real.",
-        technologies: [
-            "React Native",
-            "Node.js",
-            "MongoDB",
-            "Socket.io",
-            "Firebase",
-        ],
-        results: "Mais de 10.000 downloads no primeiro mês",
-        image: "",
-        category: "Mobile",
-    },
-    {
-        id: 5,
-        title: "Dashboard Analytics B2B",
-        description:
-            "Plataforma de analytics e relatórios para empresa de marketing digital, com visualização de dados em tempo real.",
-        technologies: [
-            "Vue.js",
-            "Laravel",
-            "Chart.js",
-            "Elasticsearch",
-            "Redis",
-        ],
-        results: "Melhoria de 50% na tomada de decisões estratégicas",
-        image: "",
-        category: "Analytics",
-    },
-    {
-        id: 6,
-        title: "Automação de Processos RPA",
-        description:
-            "Implementação de robôs para automação de processos repetitivos em departamento financeiro, incluindo conciliação bancária.",
-        technologies: ["Python", "Selenium", "Pandas", "API REST", "Cron Jobs"],
-        results: "Economia de 80 horas/mês em tarefas manuais",
-        image: "",
-        category: "Automação",
-    },
-];
+const props = defineProps({ projects: Array });
+
+console.log("Todos os projetos:", props.projects);
 </script>
 
 <template>
     <AppLayout>
         <!-- HERO SECTION -->
         <section
-            class="text-center py-16 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg mb-16"
+            class="text-center py-16 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg mb-16 px-5"
         >
             <h1 class="text-4xl md:text-5xl font-bold mb-4">
                 Meus Projetos 🚀
@@ -97,42 +30,45 @@ const projects = [
         </section>
 
         <!-- GRID DE PROJETOS -->
-        <section class="py-8">
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <section class="py-12 bg-gray-50">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
                 <div
-                    v-for="project in projects"
+                    v-for="project in props.projects"
                     :key="project.id"
-                    class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+                    class="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col"
                 >
-                    <!-- Imagem do Projeto -->
-                    <div
-                        class="h-48 bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center"
-                    >
-                        <span class="text-white text-6xl">💻</span>
-                        <!-- Substitua por: <img :src="project.image" :alt="project.title" class="w-full h-full object-cover"> -->
+                    <!-- Capa / Imagem do Projeto -->
+                    <div class="relative h-48 w-full overflow-hidden">
+                        <img
+                            v-if="project.cover_image"
+                            :src="project.cover_image"
+                            :alt="project.title"
+                            class="w-full h-full object-cover"
+                        />
+                        <div
+                            v-else
+                            class="h-full w-full flex items-center justify-center bg-gradient-to-br from-indigo-500 to-purple-600"
+                        >
+                            <span class="text-white text-6xl">💻</span>
+                        </div>
                     </div>
 
                     <!-- Conteúdo -->
-                    <div class="p-6">
-                        <!-- Categoria -->
-                        <span
-                            class="inline-block bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full font-medium mb-3"
-                        >
-                            {{ project.category }}
-                        </span>
-
+                    <div class="p-6 flex flex-col flex-1">
                         <!-- Título -->
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">
+                        <h3
+                            class="text-xl font-bold text-gray-900 mb-2"
+                        >
                             {{ project.title }}
                         </h3>
 
-                        <!-- Descrição -->
+                        <!-- Descrição curta -->
                         <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                            {{ project.description }}
+                            {{ project.short_description }}
                         </p>
 
                         <!-- Tecnologias -->
-                        <div class="mb-4">
+                        <div v-if="project.stacks?.length" class="mb-6">
                             <h4
                                 class="text-sm font-semibold text-gray-700 mb-2"
                             >
@@ -140,25 +76,35 @@ const projects = [
                             </h4>
                             <div class="flex flex-wrap gap-2">
                                 <span
-                                    v-for="tech in project.technologies"
-                                    :key="tech"
-                                    class="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded"
+                                    v-for="tech in project.stacks"
+                                    :key="tech.id"
+                                    class="inline-block bg-indigo-50 text-indigo-700 text-xs px-3 py-1 rounded-full font-medium hover:bg-indigo-100 transition"
                                 >
-                                    {{ tech }}
+                                    {{ tech.title }}
                                 </span>
                             </div>
                         </div>
 
-                        <!-- Resultados -->
-                        <div class="border-t pt-4">
-                            <h4
-                                class="text-sm font-semibold text-green-700 mb-1"
+                        <!-- Links -->
+                        <div class="mt-auto flex gap-3">
+                            <a
+                                v-if="project.project_url"
+                                :href="project.project_url"
+                                target="_blank"
+                                rel="noopener"
+                                class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-sm font-medium shadow hover:from-indigo-700 hover:to-purple-700 hover:shadow-lg transition"
                             >
-                                Resultado:
-                            </h4>
-                            <p class="text-green-600 text-sm font-medium">
-                                {{ project.results }}
-                            </p>
+                                🔗 Ver Projeto
+                            </a>
+                            <a
+                                v-if="project.repository_url"
+                                :href="project.repository_url"
+                                target="_blank"
+                                rel="noopener"
+                                class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-gray-300 text-gray-700 text-sm font-medium bg-white hover:bg-gray-50 hover:border-gray-400 hover:text-gray-900 shadow-sm transition"
+                            >
+                                📂 Repositório
+                            </a>
                         </div>
                     </div>
                 </div>

@@ -45,7 +45,7 @@ import AppLayout from "@/Layouts/AppLayout.vue";
                     <div>
                         <a
                             href="/contact"
-                            class="inline-block bg-indigo-600 text-white px-6 py-3 rounded-lg shadow hover:bg-indigo-700 transition text-lg font-medium"
+                            class="inline-block bg-gradient-to-br from-indigo-500 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white px-6 py-3 rounded-lg shadow hover:bg-indigo-700 transition text-lg font-medium"
                         >
                             📅 Agende uma reunião comigo
                         </a>

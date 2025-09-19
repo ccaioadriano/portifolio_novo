@@ -1,101 +1,103 @@
 <template>
     <div class="min-h-screen flex flex-col bg-gray-50 text-gray-900 font-sans">
         <!-- NAVBAR -->
-        <header class="bg-white shadow fixed top-0 left-0 right-0 z-50">
-            <nav
-                class="max-w-7xl mx-auto flex justify-between items-center px-4 sm:px-6 py-4"
+        <header class="shadow-md">
+            <Disclosure
+                as="nav"
+                class="relative backdrop-blur-md bg-gradient-to-r"
+                v-slot="{ open }"
             >
-                <!-- Branding -->
-                <Link
-                    href="/"
-                    class="text-xl sm:text-2xl font-bold text-indigo-600 hover:text-indigo-700 transition"
-                >
-                    Caio Adriano
-                </Link>
+                <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                    <div
+                        class="relative flex h-16 items-center justify-between"
+                    >
+                        <!-- LOGO + LINKS -->
+                        <div
+                            class="absolute sm:relative inset-y-0 left-0 flex flex-1 items-center justify-center sm:items-stretch sm:justify-start"
+                        >
+                            <Link class="flex items-center gap-2" as="button" href="/">
+                                <!-- Ícone ou inicial -->
+                                <div
+                                    class="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-bold shadow-md"
+                                >
+                                    CA
+                                </div>
 
-                <!-- Menu Desktop (hidden no mobile) -->
-                <ul
-                    class="hidden md:flex gap-6 lg:gap-8 text-gray-700 font-medium"
-                >
-                    <li>
-                        <Link class="hover:text-indigo-600 transition" href="/"
-                            >Início</Link
-                        >
-                    </li>
-                    <li>
-                        <Link
-                            class="hover:text-indigo-600 transition"
-                            href="/sobre"
-                            >Sobre</Link
-                        >
-                    </li>
-                    <li>
-                        <Link
-                            class="hover:text-indigo-600 transition"
-                            href="/projetos"
-                            >Projetos</Link
-                        >
-                    </li>
-                </ul>
+                                <!-- Nome -->
+                                <span
+                                    class="ml-2 text-xl font-extrabold tracking-tight text-gray-900"
+                                >
+                                    Caio Adriano
+                                </span>
+                            </Link>
+                        </div>
 
-                <!-- Botão Hamburger (só no mobile) -->
-                <button
-                    @click="mobileMenuOpen = !mobileMenuOpen"
-                    class="md:hidden flex flex-col gap-1 p-2"
-                    aria-label="Menu"
-                >
-                    <span
-                        class="w-6 h-0.5 bg-gray-700 transition-all"
-                        :class="{ 'rotate-45 translate-y-2': mobileMenuOpen }"
-                    ></span>
-                    <span
-                        class="w-6 h-0.5 bg-gray-700 transition-all"
-                        :class="{ 'opacity-0': mobileMenuOpen }"
-                    ></span>
-                    <span
-                        class="w-6 h-0.5 bg-gray-700 transition-all"
-                        :class="{ '-rotate-45 -translate-y-2': mobileMenuOpen }"
-                    ></span>
-                </button>
-            </nav>
+                        <!-- ÍCONES DIREITA -->
+                        <div
+                            class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
+                        >
+                            <DisclosureButton
+                                class="relative inline-flex items-center justify-center rounded-md p-2 transition sm:hidden"
+                            >
+                                <span class="absolute -inset-0.5" />
+                                <span class="sr-only">Open main menu</span>
+                                <Bars3Icon
+                                    v-if="!open"
+                                    class="block size-6"
+                                    aria-hidden="true"
+                                />
+                                <XMarkIcon
+                                    v-else
+                                    class="block size-6"
+                                    aria-hidden="true"
+                                />
+                            </DisclosureButton>
 
-            <!-- Menu Mobile (dropdown) -->
-            <div
-                v-show="mobileMenuOpen"
-                class="md:hidden bg-white border-t shadow-lg"
-            >
-                <ul
-                    class="flex flex-col py-4 px-6 gap-4 text-gray-700 font-medium"
-                >
-                    <li>
-                        <Link
-                            @click="mobileMenuOpen = false"
-                            class="block hover:text-indigo-600 transition py-2"
-                            href="/"
+                            <div class="hidden sm:ml-6 sm:block">
+                                <div class="flex space-x-2 md:space-x-4">
+                                    <Link
+                                        v-for="item in navigation"
+                                        :key="item.name"
+                                        :href="item.href"
+                                        :class="[
+                                            currentPath === item.href
+                                                ? 'bg-indigo-600 text-white'
+                                                : 'text-gray-900 hover:bg-indigo-500/20',
+                                            'px-3 py-2 rounded-md text-sm font-medium',
+                                        ]"
+                                        :aria-current="
+                                            item.current ? 'page' : undefined
+                                        "
+                                    >
+                                        {{ item.name }}
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MOBILE MENU -->
+                <DisclosurePanel class="sm:hidden">
+                    <div class="space-y-1 px-2 pt-2 pb-3">
+                        <DisclosureButton
+                            v-for="item in navigation"
+                            :key="item.name"
+                            as="a"
+                            :href="item.href"
+                            :class="[
+                                currentPath == item.href
+                                    ? 'bg-indigo-600 text-white'
+                                    : 'text-gray-900 hover:bg-indigo-500/20 transition',
+                                'block rounded-md px-3 py-2 text-base font-medium transition',
+                            ]"
+                            :aria-current="item.current ? 'page' : undefined"
                         >
-                            Início
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            @click="mobileMenuOpen = false"
-                            class="block hover:text-indigo-600 transition py-2"
-                            href="/sobre"
-                        >
-                            Sobre
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            @click="mobileMenuOpen = false"
-                            class="block hover:text-indigo-600 transition py-2"
-                            href="/projetos"
-                        >
-                            Projetos
-                        </Link>
-                    </li>
-                </ul>
-            </div>
+                            {{ item.name }}
+                        </DisclosureButton>
+                    </div>
+                </DisclosurePanel>
+            </Disclosure>
         </header>
 
         <!-- MAIN CONTENT -->
@@ -107,7 +109,7 @@
         <footer class="bg-gray-900 text-gray-300 py-6 mt-auto">
             <div class="max-w-7xl mx-auto flex flex-col items-center gap-2">
                 <p class="text-sm">
-                    © 2025 Caio Adriano · Consultor de Soluções Tecnológicas
+                    © {{ new Date().getFullYear() }} Caio Adriano · Consultor de Soluções Tecnológicas
                 </p>
                 <div class="flex gap-4">
                     <a
@@ -137,9 +139,18 @@
 </template>
 
 <script setup>
+import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue";
+import { Bars3Icon, XMarkIcon } from "@heroicons/vue/24/outline";
 import { Link } from "@inertiajs/vue3";
-import { ref } from "vue";
 
-// Estado do menu mobile
-const mobileMenuOpen = ref(false);
+const navigation = [
+    {
+        name: "Início",
+        href: "/",
+    },
+    { name: "Sobre", href: "/sobre" },
+    { name: "Projetos", href: "/projetos" },
+];
+
+const currentPath = window.location.pathname;
 </script>
