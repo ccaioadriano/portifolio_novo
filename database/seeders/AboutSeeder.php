@@ -18,7 +18,7 @@ class AboutSeeder extends Seeder
             'name' => 'Caio Adriano Rodrigues dos Santos',
             'headline' => 'Consultor de Soluções Tecnológicas | Fullstack Dev Laravel + Vue',
             'bio' => 'Profissional com 4 anos de experiência em desenvolvimento fullstack, integração de sistemas, sustentação de aplicações críticas e otimização de processos internos. Experiência em saúde, logística e projetos independentes.',
-            'profile_picture' => null,
+            'profile_picture' => 'perfil/formatura.png',
             'social_links' => json_encode([
                 'github' => 'https://github.com/ccaioadriano',
                 'linkedin' => 'https://www.linkedin.com/in/caio-adriano',
