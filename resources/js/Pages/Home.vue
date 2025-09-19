@@ -1,7 +1,7 @@
 <script setup>
 import AppLayout from "@/Layouts/AppLayout.vue";
 
-import { useForm, Link } from "@inertiajs/vue3";
+import { useForm, Link,router } from "@inertiajs/vue3";
 
 const form = useForm({
     name: "",
