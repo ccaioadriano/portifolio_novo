@@ -8,7 +8,6 @@ import {
 
 const props = defineProps({ projects: Array });
 
-console.log("Todos os projetos:", props.projects);
 </script>
 
 <template>

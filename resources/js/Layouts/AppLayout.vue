@@ -25,7 +25,7 @@
 
                                 <!-- Nome -->
                                 <span
-                                    class="ml-2 text-xl font-extrabold tracking-tight text-gray-900"
+                                    class="ml-2 text-xl font-extrabold tracking-tight text-purple-600"
                                 >
                                     Caio Adriano
                                 </span>

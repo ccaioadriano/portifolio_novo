@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Education;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class EducationSeeder extends Seeder
 {
@@ -13,29 +14,31 @@ class EducationSeeder extends Seeder
      */
     public function run(): void
     {
-        Education::create([
-            'course' => 'Bacharelado em Sistemas de Informação',
-            'institution' => 'Universidade UNA',
-            'start_date' => '2018-02-01',
-            'end_date' => '2021-12-15',
-            'description' => 'Formação completa em desenvolvimento de sistemas, banco de dados, engenharia de software e gestão de projetos de TI.',
-        ]);
+        $education = [
+            [
+                'course' => 'Pós-Graduação em Arquitetura de Software Distribuído',
+                'institution' => 'PUC Minas',
+                'start_date' => '2023-01-01',
+                'end_date' => '2024-12-01',
+                'description' => 'Ênfase em arquitetura distribuída, microsserviços e sistemas escaláveis.'
+            ],
+            [
+                'course' => 'Bacharelado em Sistemas de Informação',
+                'institution' => 'UNA',
+                'start_date' => '2019-01-01',
+                'end_date' => '2023-12-01',
+                'description' => 'Formação sólida em desenvolvimento de software, banco de dados e infraestrutura.'
+            ],
+            [
+                'course' => 'Administração de Banco de Dados',
+                'institution' => 'UFV',
+                'start_date' => '2020-01-01',
+                'end_date' => '2020-12-01',
+                'description' => 'Curso de extensão em modelagem, tuning e manutenção de bancos de dados relacionais.'
+            ]
+        ];
 
-        Education::create([
-            'course' => 'Curso Laravel Avançado',
-            'institution' => 'Plataforma Online',
-            'start_date' => '2022-03-01',
-            'end_date' => '2022-06-30',
-            'description' => 'Especialização em Laravel com foco em APIs, testes automatizados e arquitetura de software.',
-        ]);
-
-        Education::create([
-            'course' => 'Certificação Vue.js',
-            'institution' => 'Vue School',
-            'start_date' => '2023-01-15',
-            'end_date' => '2023-04-20',
-            'description' => 'Certificação oficial em Vue.js 3, Composition API, Pinia e desenvolvimento de SPAs modernas.',
-        ]);
+        DB::table('education')->insert($education);
     }
 
 }

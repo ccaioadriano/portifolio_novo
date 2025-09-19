@@ -6,36 +6,45 @@ import AppLayout from "@/Layouts/AppLayout.vue";
     <AppLayout>
         <!-- SECTION SOBRE -->
         <section class="py-20 max-w-6xl mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <!-- FOTO PROFISSIONAL -->
                 <div class="flex justify-center">
                     <img
                         src="../../../public/images/perfil-formatura.png"
                         alt="Foto de Caio Adriano - Consultor em Soluções Tecnológicas"
-                        class="rounded-xl shadow-lg max-w-sm border-4 border-indigo-100"
+                        class="w-40 sm:w-56 md:w-72 lg:w-80 rounded-xl shadow-lg border-4 border-indigo-100 object-cover"
                     />
                 </div>
 
                 <!-- TEXTO SOBRE -->
-                <div>
-                    <h1 class="text-4xl font-bold text-gray-900 mb-4">
+                <div class="flex flex-col text-center md:text-left">
+                    <h1
+                        class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4"
+                    >
                         Sobre <span class="text-indigo-600">mim</span>
                     </h1>
-                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    <p
+                        class="text-base sm:text-lg text-gray-700 leading-relaxed mb-6"
+                    >
                         Sou <span class="font-semibold">Caio Adriano</span>,
-                        consultor em soluções tecnológicas ajudando negocios a transformarem sua presença digital inovação e transformação digital.
+                        consultor em soluções tecnológicas ajudando negócios a
+                        transformarem sua presença digital com inovação e
+                        transformação digital.
                     </p>
-                    <p class="text-gray-700 leading-relaxed mb-6">
+                    <p
+                        class="text-base sm:text-lg text-gray-700 leading-relaxed mb-6"
+                    >
                         Minha missão é ajudar empresas a
                         <span class="font-semibold"
                             >aumentarem sua presença digital</span
                         >, otimizarem processos e escalarem resultados com
-                        tecnologia inteligente. Ao longo da minha trajetória, já
-                        apoiei negócios a integrarem sistemas, adotarem
-                        ferramentas modernas e estruturarem operações digitais
-                        de forma escalável e segura.
+                        tecnologia inteligente. Já apoiei negócios a integrarem
+                        sistemas, adotarem ferramentas modernas e estruturarem
+                        operações digitais de forma escalável e segura.
                     </p>
-                    <p class="text-gray-700 leading-relaxed mb-8">
+                    <p
+                        class="text-base sm:text-lg text-gray-700 leading-relaxed mb-8"
+                    >
                         Acredito que tecnologia não é apenas uma ferramenta, mas
                         a ponte que conecta empresas às suas melhores
                         oportunidades de crescimento.
@@ -45,7 +54,7 @@ import AppLayout from "@/Layouts/AppLayout.vue";
                     <div>
                         <a
                             href="/contact"
-                            class="inline-block bg-gradient-to-br from-indigo-500 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white px-6 py-3 rounded-lg shadow hover:bg-indigo-700 transition text-lg font-medium"
+                            class="inline-block bg-gradient-to-br from-indigo-500 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white px-6 py-3 rounded-lg shadow-md transition text-base sm:text-lg font-medium"
                         >
                             📅 Agende uma reunião comigo
                         </a>

@@ -13,47 +13,17 @@ class StackSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('stacks')->insert([
-            [
-                'title' => 'Laravel',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'title' => 'Vue.js',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'title' => 'Filament',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'title' => 'PHP',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'title' => 'JavaScript',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'title' => 'MySQL',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'title' => 'TailwindCSS',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'title' => 'Docker',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-        ]);
+        $stacks = [
+            ['title' => 'Java (Spring Boot)', 'icon_path' => 'icons/java.svg'],
+            ['title' => 'PHP (Laravel)', 'icon_path' => 'icons/laravel.svg'],
+            ['title' => 'MySQL', 'icon_path' => 'icons/mysql.svg'],
+            ['title' => 'React', 'icon_path' => 'icons/react.svg'],
+            ['title' => 'React Native', 'icon_path' => 'icons/react-native.svg'],
+            ['title' => 'Docker', 'icon_path' => 'icons/docker.svg'],
+            ['title' => 'AWS RDS', 'icon_path' => 'icons/aws.svg'],
+            ['title' => 'HTML/CSS/JS', 'icon_path' => 'icons/html-css-js.svg'],
+        ];
+
+        DB::table('stacks')->insert($stacks);
     }
 }
