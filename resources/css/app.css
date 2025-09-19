@@ -1,5 +1,9 @@
 @import 'tailwindcss';
+/* Inter 400 (normal) */
+@import "@fontsource/inter/400.css";
 
+/* Inter 700 (bold) */
+@import "@fontsource/inter/700.css";
 @theme {
   --font-sans: InterVariable, sans-serif;
   --font-sans--font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';

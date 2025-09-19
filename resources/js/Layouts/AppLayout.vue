@@ -1,10 +1,10 @@
 <template>
     <div class="min-h-screen flex flex-col bg-gray-50 text-gray-900 font-sans">
         <!-- NAVBAR -->
-        <header class="shadow-md">
+        <header class="shadow-md sticky top-0 z-10">
             <Disclosure
                 as="nav"
-                class="relative backdrop-blur-md bg-gradient-to-r"
+                class="backdrop-blur-lg"
                 v-slot="{ open }"
             >
                 <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -68,6 +68,7 @@
                                         :aria-current="
                                             item.current ? 'page' : undefined
                                         "
+                                        
                                     >
                                         {{ item.name }}
                                     </Link>
@@ -108,7 +109,7 @@
         <!-- FOOTER -->
         <footer class="bg-gray-900 text-gray-300 py-6 mt-auto">
             <div class="max-w-7xl mx-auto flex flex-col items-center gap-2">
-                <p class="text-sm">
+                <p class="text-sm text-center">
                     © {{ new Date().getFullYear() }} Caio Adriano · Consultor em Soluções Tecnológicas
                 </p>
                 <div class="flex gap-4">

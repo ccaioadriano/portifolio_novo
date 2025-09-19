@@ -5,21 +5,38 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <title>{{ config('app.name', 'Laravel') }}</title>
+
+    <!-- Primary Meta Tags -->
+    <title>{{ $title ?? 'Caio Adriano — Consultor em Soluções Tecnológicas' }}</title>
+    <meta name="title" content="{{ $title ?? 'Caio Adriano — Consultor em Soluções Tecnológicas' }}">
+    <meta name="description"
+        content="Portfólio de Caio Adriano, consultor em soluções tecnológicas, especializado em Laravel, Inertia.js e desenvolvimento de sistemas personalizados.">
+
+    <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon-16x16.png') }}">
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{{ url()->current() }}">
+
+    <!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:title" content="{{ $title ?? 'Caio Adriano — Consultor em Soluções Tecnológicas' }}">
+    <meta property="og:description"
+        content="Apresentação e portfólio de projetos desenvolvidos por Caio Adriano.">
+    <meta property="og:locale" content="pt_BR">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ url()->current() }}">
+    <meta property="twitter:title" content="{{ $title ?? 'Caio Adriano — Consultor em Soluções Tecnológicas' }}">
+    <meta property="twitter:description" content="Portfólio de soluções em tecnologia com Laravel e Inertia.js.">
 
     <!-- Styles / Scripts -->
     @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
         @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @else
-
     @endif
+
     @inertiaHead
 </head>
 
