@@ -15,7 +15,7 @@
                         <div
                             class="absolute sm:relative inset-y-0 left-0 flex flex-1 items-center justify-center sm:items-stretch sm:justify-start"
                         >
-                            <Link class="flex items-center gap-2" as="button" href="/">
+                            <Link class="flex items-center gap-2" href="/" >
                                 <!-- Ícone ou inicial -->
                                 <div
                                     class="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-bold shadow-md"

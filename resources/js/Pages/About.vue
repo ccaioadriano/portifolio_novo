@@ -28,32 +28,11 @@ const props = defineProps({
                     >
                         Sobre <span class="text-indigo-600">mim</span>
                     </h1>
-                    <p
-                        class="text-base sm:text-lg text-gray-700 leading-relaxed mb-6"
-                    >
-                        Sou <span class="font-semibold">Caio Adriano</span>,
-                        consultor em soluções tecnológicas ajudando negócios a
-                        transformarem sua presença digital com inovação e
-                        transformação digital.
-                    </p>
-                    <p
-                        class="text-base sm:text-lg text-gray-700 leading-relaxed mb-6"
-                    >
-                        Minha missão é ajudar empresas a
-                        <span class="font-semibold"
-                            >aumentarem sua presença digital</span
-                        >, otimizarem processos e escalarem resultados com
-                        tecnologia inteligente. Já apoiei negócios a integrarem
-                        sistemas, adotarem ferramentas modernas e estruturarem
-                        operações digitais de forma escalável e segura.
-                    </p>
-                    <p
-                        class="text-base sm:text-lg text-gray-700 leading-relaxed mb-8"
-                    >
-                        Acredito que tecnologia não é apenas uma ferramenta, mas
-                        a ponte que conecta empresas às suas melhores
-                        oportunidades de crescimento.
-                    </p>
+
+                    <div
+                        class="about-content prose prose-lg text-gray-700"
+                        v-html="about.bio"
+                    ></div>
 
                     <!-- CTA -->
                     <div>

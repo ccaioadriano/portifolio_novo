@@ -122,12 +122,6 @@ const props = defineProps({ projects: Array });
                 >
                     💬 Vamos conversar
                 </a>
-                <a
-                    href="mailto:caiobhadriano@gmail.com"
-                    class="bg-white text-indigo-600 border-2 border-indigo-600 px-8 py-3 rounded-lg font-medium hover:bg-indigo-50 transition"
-                >
-                    📧 Enviar e-mail
-                </a>
             </div>
         </section>
     </AppLayout>

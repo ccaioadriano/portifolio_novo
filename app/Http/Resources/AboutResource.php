@@ -17,7 +17,8 @@ class AboutResource extends JsonResource
         return [
             'profile_picture' => $this->profile_picture ? asset('storage/' . $this->profile_picture)
                 : null,
-            'social_links' => $this->social_links ?? []
+            'social_links' => $this->social_links ?? [],
+            'bio' => $this->bio
         ];
     }
 }
