@@ -4,7 +4,7 @@
         <header class="shadow-md sticky top-0 z-10">
             <Disclosure
                 as="nav"
-                class="backdrop-blur-lg"
+                class="z-10 bg-white"
                 v-slot="{ open }"
             >
                 <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

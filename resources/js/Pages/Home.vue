@@ -63,7 +63,7 @@ ${form.message}
         <section
             class="text-center py-20 px-5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg"
         >
-            <h1 class="text-4xl md:text-5xl font-bold mb-4 leading-16">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">
                 Soluções Tecnológicas para transformar seu negócio
             </h1>
             <p class="max-w-2xl mx-auto text-lg mb-6">
