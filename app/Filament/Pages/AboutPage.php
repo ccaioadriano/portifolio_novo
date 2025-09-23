@@ -19,7 +19,6 @@ class AboutPage extends Page
 {
     protected string $view = 'filament.pages.about-page';
 
-
     /**
      * @var array<string, mixed> | null
      */
