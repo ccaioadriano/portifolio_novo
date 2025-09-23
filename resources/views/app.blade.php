@@ -16,6 +16,7 @@
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon-16x16.png') }}">
+    <link rel="icon" type="image/x-icon" sizes="16x16" href="{{ asset('images/favicon-16x16.png') }}">
 
     <!-- Canonical URL -->
     <link rel="canonical" href="{{ url()->current() }}">
