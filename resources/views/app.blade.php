@@ -7,10 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Primary Meta Tags -->
-    <title>{{ $title ?? 'Caio Adriano — Consultor em Soluções Tecnológicas' }}</title>
-    <meta name="title" content="{{ $title ?? 'Caio Adriano — Consultor em Soluções Tecnológicas' }}">
+    <title>Caio Adriano — Consultor em Soluções Tecnológicas</title>
+    <meta name="title" content="Criação de Site e Consultoria Digital | Caio Adriano">
     <meta name="description"
-        content="Portfólio de Caio Adriano, consultor em soluções tecnológicas, especializado em Laravel, Inertia.js e desenvolvimento de sistemas personalizados.">
+        content="Especialista em criação de site e consultoria digital para ajudar negócios a expandirem sua presença online.">
+    <meta name="keywords"
+        content="criação de site, criação de um site, consultoria digital, presença digital, Caio Adriano, sistemas personalizados, automação, soluções tecnológicas">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon-16x16.png') }}">
@@ -21,16 +23,19 @@
     <!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:title" content="{{ $title ?? 'Caio Adriano — Consultor em Soluções Tecnológicas' }}">
+    <meta property="og:title" content="{{ $title ?? 'Criação de Site e Consultoria Digital | Caio Adriano' }}">
     <meta property="og:description"
-        content="Apresentação e portfólio de projetos desenvolvidos por Caio Adriano.">
+        content="Especialista em criação de site e consultoria digital para ajudar negócios a expandirem sua presença online.">
     <meta property="og:locale" content="pt_BR">
+    <meta property="og:image" content="{{ asset('images/preview.png') }}">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="{{ url()->current() }}">
-    <meta property="twitter:title" content="{{ $title ?? 'Caio Adriano — Consultor em Soluções Tecnológicas' }}">
-    <meta property="twitter:description" content="Portfólio de soluções em tecnologia com Laravel e Inertia.js.">
+    <meta property="twitter:title" content="{{ $title ?? 'Criação de Site e Consultoria Digital | Caio Adriano' }}">
+    <meta property="twitter:description"
+        content="Especialista em criação de site e consultoria digital para expandir sua presença online.">
+    <meta property="twitter:image" content="{{ asset('images/preview.png') }}">
 
     <!-- Styles / Scripts -->
     @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
